@@ -99,7 +99,7 @@ const HeaderLeft = styled.div`
 
   > h4 {
     display: flex;
-    text-transform: lowercase;
+    /* text-transform: lowercase; */
     margin-right: 10px;
   }
 
