@@ -6,14 +6,19 @@ import Avatar from "@mui/material/Avatar";
 import SearchIcon from "@mui/icons-material/Search";
 import HelpIcon from "@mui/icons-material/Help";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
 
 export default function Header() {
+  const [user] = useAuthState(auth);
+
   return (
     <HeaderContainer>
       <HeaderLeft>
         <HeaderAvatar
-          src="https://img00.deviantart.net/8ee6/i/2015/257/4/6/goku_super_saiyan_2_fanart_by_otakuartdesu-d99n8cp.png"
-          alt="Goku image"
+          src={user?.photoURL}
+          alt={user?.displayName}
+          onClick={() => auth.signOut()}
         />
         <AccessTimeIcon />
       </HeaderLeft>
